@@ -1,6 +1,6 @@
 /*
   Status.h - Data structure for system status
-  
+
   Copyright (C) 2020 -2021 @G4lile0, @gmag12 and @dev_4m1g0
 
   This program is free software: you can redistribute it and/or modify
@@ -28,15 +28,15 @@ struct PacketInfo {
   String time = "Waiting";
   float rssi = 0;
   float snr = 0;
-  float frequencyerror = 0;    // Hz 
+  float frequencyerror = 0;    // Hz
   bool crc_error = false;
 };
 
 struct ModemInfo {
   char satellite[25]  = "Waiting";
   String  modem_mode  = "LoRa" ;     // 1-LoRa  2-FSK  3-GMSK
-  float   frequency   = 0; // MHz  
-  float   freqOffset  = 0;       // Hz 
+  float   frequency   = 0; // MHz
+  float   freqOffset  = 0;       // Hz
   float   bw          = 0;   // kHz dual sideban
   uint8_t sf          = 0 ;
   uint8_t cr          = 0 ;
@@ -57,16 +57,16 @@ struct ModemInfo {
   uint8_t   enc       = 0;      // FSK  transmission encoding. (0 -> NRZ(sx127x, sx126x)(defaul).  1 -> MANCHESTER(sx127x), WHITENING(sx126x).  2 -> WHITENING(sx127x, sx126x). 10 -> NRZ(sx127x), WHITENING(sx126x).
 };
 
-struct TextFrame {   
+struct TextFrame {
   uint8_t text_font;
   uint8_t text_alignment;
   int16_t text_pos_x;
-  int16_t text_pos_y; 
+  int16_t text_pos_y;
   String text = "123456789012345678901234567890";
 };
 
 struct Status {
-  const uint32_t version = 2207084; // version year month day release
+  const uint32_t version = 2210070; // version year month day release
   const char* git_version = GIT_VERSION;
   bool mqtt_connected = false;
   bool radio_ready = false;
