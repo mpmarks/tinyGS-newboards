@@ -32,7 +32,11 @@ bool eInterrupt = true;
 bool noisyInterrupt = false;
 
 Radio::Radio()
-    : spi(VSPI)
+#if CONFIG_IDF_TARGET_ESP32S3
+    : spi(HSPI)
+#else
+   : spi(VSPI)
+#endif
 {
 }
 
