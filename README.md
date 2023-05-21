@@ -17,3 +17,5 @@ The <code>latest</code> release provided in this fork is the result of compiling
 - [Pull Request 182](https://github.com/G4lile0/tinyGS/pull/182) Handle no OLED reset pin
 
 If you would like to use the latest firmware on your TinyGS station without having to compile it from source yourself, this release may be of interest.
+
+This version adds support for 2 new Lora boards - Heltec Lora32 V3 board (ESP32S3 with sx1262) and the Lilygo TY3_1.6.1 (new pinout)
