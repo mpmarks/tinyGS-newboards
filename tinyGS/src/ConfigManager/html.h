@@ -45,6 +45,8 @@ const char BOARD_NAMES[][BOARD_NAME_LENGTH] PROGMEM =
   "868-915MHz FOSSA 1W Ground Station",
   "2.4GHz ESP32 + SX1280",
   "868-915MHzT-BEAM V1.0 + OLED",
+  "433MHz LILYGO T3_V1.6.1",
+  "433MHz HELTEC LORA32 V3",
 };
 
 constexpr auto BOARD_LENGTH = 3;
