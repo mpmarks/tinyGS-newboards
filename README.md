@@ -19,4 +19,4 @@ The <code>latest</code> release provided in this fork is the result of compiling
 If you would like to use the latest firmware on your TinyGS station without having to compile it from source yourself, this release may be of interest.
 
 This version adds support for 2 new Lora boards - Heltec Lora32 V3 board (ESP32S3 with sx1262) and the Lilygo T3_1.6.1. Why weren't these boards handled properly by the original (or beta) code? The Heltec V3 board uses a different ESP32 variant - the ESP32-S3 which requires newer libraries and build settings. It also uses a SX1262 radio which requires other changes.
-The new Lilygo board has no RST on the OLED and one of the common reset lines (GPIO16)  turns out to be one of the flash control lines on this board, so that during the new board identification code wiggling this line makes this board unstable.
+The new Lilygo board has an ESP32-PICO-D4 cpu but has no RST on the OLED and one of the common reset lines (GPIO16)  turns out to be one of the flash control lines (flash_cs) on this board, so that during the new board identification code wiggling this line makes this board unstable because it turns off the flash access.

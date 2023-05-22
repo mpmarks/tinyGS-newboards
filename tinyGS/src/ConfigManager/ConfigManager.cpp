@@ -556,9 +556,16 @@ void ConfigManager::boardDetection()
 
   // test OLED configuration
   Log::error(PSTR("Automatic board detection running... "));
+  // If the cpu is a ESP32-PICO-D4 we know it is the Lilygo T3_v1.6.1
+  // and we cant use GPIO16 to test for an OLED
+  if (strcmp(ESP.getChipModel(), "ESP32-PICO-D4")==0) {
+    itoa(LILYGO_T3_V1_6_1_LF, board, 10);
+    return;
+  };
+
   for (uint8_t ite = 0; ite < ((sizeof(boards) / sizeof(boards[0]))); ite++)
   {
-    Serial.print(boards[ite].BOARD);
+  //  Serial.print(boards[ite].BOARD); 
     pinMode(boards[ite].OLED__RST, OUTPUT);
     digitalWrite(boards[ite].OLED__RST, LOW);
     delay(50);
