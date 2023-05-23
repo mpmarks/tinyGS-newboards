@@ -563,6 +563,12 @@ void ConfigManager::boardDetection()
     return;
   };
 
+  // Check for Heltec lora32 V3 too
+  if (strcmp(ESP.getChipModel(), "ESP32-S3")==0) {
+    itoa(HELTEC_LORA32_V3, board, 10);
+    return;
+  };
+
   for (uint8_t ite = 0; ite < ((sizeof(boards) / sizeof(boards[0]))); ite++)
   {
   //  Serial.print(boards[ite].BOARD); 
