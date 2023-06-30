@@ -433,7 +433,7 @@ int16_t Radio::remote_bw(char *payload, size_t payload_len)
   {
     state = ((SX1278 *)lora)->setBandwidth(bw);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -462,7 +462,7 @@ int16_t Radio::remote_sf(char *payload, size_t payload_len)
   {
     state = ((SX1278 *)lora)->setSpreadingFactor(sf);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -492,7 +492,7 @@ int16_t Radio::remote_cr(char *payload, size_t payload_len)
   {
     state = ((SX1278 *)lora)->setCodingRate(cr);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -521,7 +521,7 @@ int16_t Radio::remote_crc(char *payload, size_t payload_len)
   {
     state = ((SX1278 *)lora)->setCRC(crc);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -567,7 +567,7 @@ int16_t Radio::remote_fldro(char *payload, size_t payload_len)
   {
     state = ((SX1278 *)lora)->forceLDRO(ldro);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -600,7 +600,7 @@ int16_t Radio::remote_aldro(char *payload, size_t payload_len)
   {
     state = ((SX1278 *)lora)->autoLDRO();
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -625,7 +625,7 @@ int16_t Radio::remote_pl(char *payload, size_t payload_len)
   {
     state = ((SX1278 *)lora)->setPreambleLength(pl);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -672,7 +672,7 @@ int16_t Radio::remote_begin_lora(char *payload, size_t payload_len)
     ((SX1278 *)lora)->sleep(); // sleep mandatory if FastHop isn't ON.
     state = ((SX1278 *)lora)->begin(freq + status.modeminfo.freqOffset, bw, sf, cr, syncWord78, power, preambleLength, gain);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
   }
   else
   {
@@ -725,7 +725,7 @@ int16_t Radio::remote_begin_fsk(char *payload, size_t payload_len)
     state = ((SX1278 *)lora)->beginFSK(freq + status.modeminfo.freqOffset, br, freqDev, rxBw, power, preambleLength, (ook == 255));
     ((SX1278 *)lora)->setDataShaping(ook);
     ((SX1278 *)lora)->startReceive();
-    ((SX1278 *)lora)->setDio0Action(setFlag);
+    ((SX1278 *)lora)->setDio0Action(setFlag, RISING);
     ((SX1278 *)lora)->setCRC(false);
    // ((SX1278 *)lora)->_mod->SPIsetRegValue(SX127X_REG_SYNC_CONFIG, SX127X_PREAMBLE_POLARITY_AA, 5, 5);  
     ((SX1278 *)lora)->fixedPacketLengthMode(len);

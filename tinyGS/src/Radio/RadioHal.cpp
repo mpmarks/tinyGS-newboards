@@ -170,13 +170,13 @@ void RadioHal<SX1262>::setDio0Action(void (*func)(void))
 template<>
 void RadioHal<SX1278>::setDio0Action(void (*func)(void))
 {
-    radio->setDio0Action(func);
+    radio->setDio0Action(func, RISING);
 }
 
 template<>
 void RadioHal<SX1276>::setDio0Action(void (*func)(void))
 {
-    radio->setDio0Action(func);
+    radio->setDio0Action(func, RISING);
 }
 
 template<>
