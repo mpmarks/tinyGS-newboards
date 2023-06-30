@@ -134,7 +134,7 @@ float RadioHal<SX1268>::getFrequencyError(bool autoCorrect)
 template<>
 float RadioHal<SX1262>::getFrequencyError(bool autoCorrect)
 {
-    return 0;
+    return radio->getFrequencyError();
 }
 
 template<>
