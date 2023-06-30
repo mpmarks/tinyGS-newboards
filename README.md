@@ -20,3 +20,6 @@ If you would like to use the latest firmware on your TinyGS station without havi
 
 This version adds support for 2 new Lora boards - Heltec Lora32 V3 board (ESP32S3 with sx1262) and the Lilygo T3_1.6.1. Why weren't these boards handled properly by the original (or beta) code? The Heltec V3 board uses a different ESP32 variant - the ESP32-S3 which requires newer libraries and build settings. It also uses a SX1262 radio which requires other changes.
 The new Lilygo board has an ESP32-PICO-D4 cpu but has no RST on the OLED and one of the common reset lines (GPIO16)  turns out to be one of the flash control lines (flash_cs) on this board, so that during the new board identification code wiggling this line makes this board unstable because it turns off the flash access.
+
+The latest update makes the radio code compatible with V6(+) of the RadioLib library. V6 has some incompaible changes with the V5 code so there are several small fixes for this. To make it easier to coordinate and synchronize with new versions of RadioLib its source code has been removed from the repository and replaced by a lib_dep that will pull the appropriate version from github. The primary reason for the library version update is to provide the Lora frequency error data for the SX1262, and to take advantage of several other improvements to the radio support.
+ 
